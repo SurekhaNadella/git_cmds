@@ -1,0 +1,183 @@
+gcloud container clusters get-credentials my-first-cluster-1 --zone asia-east1-a --project data-button-372609
+    2  kubectl get nodes
+    3  kubectl get nodes -o wide
+    4  mkdir 24dec
+    5  cd 24dec/
+    6  vi pod-definition.yml
+    7  kubectl create -f pod-definition.yml
+    8  kubectl get pods
+    9  kubectl get pods -o wide
+   10  kubectl get pods --show-labels
+   11  kubectl describe pod1 | less
+   12  vi pod-definition.yml
+   13  kubectl describe pod1 | less
+   14  kubectl describe Pod | less
+   15  kubectl delete pods --all
+   16  kubectl create -f pod-definition.yml
+   17  kubectl logs pod1
+   18  kubectl logs -f pod1 -c c1
+   19  kubectl get pods
+   20  kubectl exec -it pod1 -- bash
+   21  kubectl delete pods --all
+   22  vi pod-definition.yml
+   23  kubectl create -f pod-definition.yml
+   24  kubectl get pods
+   25  kubectl describe pod pod1 |less
+   26  kubectl logs pod1
+   27  kubectl logs pod1 -c c2
+   28  kubectl delete pod --all
+   29  vi replicasetdemo.yml
+   30  kubectl create -f replicasetdemo.yml
+   31  vi replicasetdemo.yml
+   32  kubectl create -f replicasetdemo.yml
+   33  vi replicasetdemo.yml
+   34  kubectl create -f replicasetdemo.yml
+   35  kubectl get pods
+   36  kubectl get all
+   37  kubectl scale --replicas=3 myrs
+   38  kubectl scale replicaset --replicas=3 myrs
+   39  kubectl get all
+   40  vi replicasetdemo.yml
+   41  kubectl delete pod myrs-2cjgt
+   42  kubectl get all
+   43  kubectl delete pod replicaSet myrs
+   44  kubectl delete replicaSet myrs
+   45  kubectl get all
+   46  vi replicasetdemo.yml
+   47  kubectl create -f replicasetdemo.yml
+   48  vi replicasetdemo.yml
+   49  kubectl create -f replicasetdemo.yml
+   50  kubectl get pods -l env=dev
+   51  vi replicasetdemo.yml
+   52  kubectl create -f replicasetdemo.yml
+   53  vi replicasetdemo.yml
+   54  kubectl create -f replicasetdemo.yml
+   55  kubectl get all
+   56  kubectl get pod --show-labels
+   57  kubectl get service
+   58  vi service.yml
+   59  kubectl create -f service.yml
+   60  cat service.yml
+   61  vi service.yml
+   62  kubectl create -f service.yml
+   63  kubectl get all
+   64  kubectl describe mysvc
+   65  kubectl describe service mysvc
+   66  kubectl get nodes -0 wide
+   67  kubectl get nodes -o wide
+   68  kubectl get pods --show-labels
+   69  kubectl delete all --all
+   70  kubectl get pods
+   71  kubectl get all
+   72  vi pod-definition.yml
+   73  kubectl create -f pod-definition.yml
+   74  kubectl get pods --show-labels
+   75  vi service.yml
+   76  kubectl create -f service.yml
+   77  kubectl describe service mysvc | less
+   78  kubectl describe service mysvc
+   79  kubectl get service mysvc -o wide
+   80  kubectl run pod2 --image ubuntu
+   81  kubectl get pods
+   82  kubectl describe pod pod2
+   83  kubectl delete pod pod2
+   84  kubectl run -it pod2 --image ubuntu
+   85  vi service.yml
+   86  kubectl create -f service.yml
+   87  kubectl get service
+   88  kubectl get nodes -o wide
+   89  kubectl delete all --all
+   90  kubectl create -f pod-definition.yml
+   91  cp service.yml service1.yml
+   92  vi service1.yml
+   93  kubectl create -f service1.yml
+   94  kubectl get service
+   95  kubectl describe service mysvc1
+   96  kubectl get service
+   97  kubectl delete all --all
+   98  kubectl get namespace
+   99  kubectl create ns monitoring
+  100  kubectl get namespace
+  101  kubectl get all -n monitoring
+  102  vi pod-definition.yml
+  103  kubectl create -f pod-definition.yml
+  104  kubectl get pods
+  105  kubectl get pods -n monitoring
+  106  kubectl delete all --all -n monitoring
+  107  kubectl get all
+  108  vi deploymentDemo.yml
+  109  kubectl create -f deploymentDemo.yml
+  110  vi deploymentDemo.yml
+  111  kubectl create -f deploymentDemo.yml
+  112  vi deploymentDemo.yml
+  113  kubectl get all
+  114  vi deploymentDemo.yml
+  115  ls
+  116  vi service.yml
+  117  vi service1.yml
+  118  vi pod-definition.yml
+  119  vi replicasetdemo.yml
+  120  vi deploymentDemo.yml
+  121  kubectl create -f deploymentDemo.yml
+  122  kubectl delete all -all
+  123  kubectl delete all --all
+  124  vi deploymentDemo.yml
+  125  kubectl create -f deploymentDemo.yml
+  126  kubectl delete all --all
+  128  kubectl create -f deploymentDemo.yml
+  129  kubectl get all
+  130  kubectl rollout status deployment kubeserve
+  131  kubectl set image deployment kubeserve app=leaddevops/kubeserve:v2
+  132  vi deploymentDemo.yml
+  133  kubectl rollout status deployment kubeserve
+  134  kubectl get all
+  135  kubectl set image deployment kubeserve app=leaddevops/kubeserve:v3
+  136  kubectl rollout status deployment kubeserve
+  137  kubectl rollout undo deployment kubeserve
+  138  kubectl rollout status deployment kubeserve
+  139  kubectl rollout history deployment kubeserve
+  140  kubectl rollout history deployment kubeserve --revision=3
+  141  kubectl create -f https://raw.githubusercontent.com/David-VTUK/CKAExampleYaml/master/nginx-svc-and-deployment.yaml
+  142  kubectl get all
+  143  kubectl rollout status deployment nginx-deployment
+  144  vi deploymentDemo.yml
+  145  kubectl set image deployment nginx-deployment nginx=nginx:1.7.11 --record
+  146  kubectl rollout status deployment nginx-deployment
+  147  kubectl rollout history deployment nginx-deployment
+  148  vi lab2_deploy.yml
+  149  ls
+  150  vi deploymentDemo.yml
+  151  vi lab2_deploy.yml
+  152  vi deploymentDemo.yml
+  153  vi lab2_deploy.yml
+  154  kubectl create -f lab2_deploy.yml
+  155  kubectl get all
+  156  kubectl delete nginx-deployment
+  157  kubectl delete deployment nginx-deployment
+  158  kubectl create -f lab2_deploy.yml
+  159  kubectl delete deployment nginx-deployment
+  160  kubectl delete service nginx-service
+  161  kubectl create -f lab2_deploy.yml
+  162  kubectl rollout status deployment nginx-deployment
+  163  kubectl rollout history deployment nginx-deployment
+  164  cat lab2_deploy.yml
+  165  kubectl delete deployment nginx-deployment
+  166  kubectl delete service nginx-service
+  167  kubectl create -f https://raw.githubusercontent.com/David-VTUK/CKAExampleYaml/master/nginx-svc-and-deployment.yaml
+  168  kubectl set image deployment nginx-deployment nginx=nginx:1.7.11 --record
+  169  kubectl rollout undo deployment nginx-deployment
+  170  kubectl rollout status deployment nginx-deployment
+  171  kubectl rollout history deployment nginx-deployment
+  172  kubectl get deployment nginx-deployment -o wide
+  173  kubectl delete deployment nginx-deployment
+  174  kubectl delete service nginx-service
+  175  vi stateful.yml
+  176  kubectl delete all --all
+  177  kubectl create -f stateful.yml
+  178  kubectl get service nginx
+  179  kubectl get all
+  180  kubectl get pods
+  181  kubectl delete pod web-0
+  182  kubectl get pods
+  183  kubectl get all
+  184  kubectl scale statefulset web --replicas=4
